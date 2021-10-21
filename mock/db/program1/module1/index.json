@@ -1,0 +1,39 @@
+{
+    "cover": {
+        "code": 200,
+        "data": "bbc"
+    },
+    "__child_apis__": [
+        "test1"
+    ],
+    "test1": {
+        "__child_apis__": [
+            "test2"
+        ],
+        "test2": {
+            "__child_apis__": [
+                "test3",
+                "test3-1"
+            ],
+            "test3": {
+                "code": 200,
+                "data": "/program1/module1/test2/test3",
+                "__child_apis__": [
+                    "test4"
+                ],
+                "test4": {
+                    "code": 200,
+                    "data": "/program1/module1/test2/test3"
+                }
+            },
+            "test3-1": {
+                "code": 200,
+                "data": "/program1/module1/test2/test3"
+            },
+            "code": 200,
+            "data": "/program1/module1/test2/test3"
+        },
+        "code": 200,
+        "data": "/program1/module1/test111111111111"
+    }
+}

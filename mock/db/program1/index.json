@@ -1,0 +1,13 @@
+{
+    "test": {
+        "code": 200,
+        "data": "/program1/test"
+    },
+    "__child_apis__": [
+        "test2"
+    ],
+    "test2": {
+        "code": 200,
+        "data": "/program1/module1/test2/test3"
+    }
+}

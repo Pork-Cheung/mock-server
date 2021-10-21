@@ -1,0 +1,15 @@
+{
+  "name": "mock-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Pork-Cheung",
+  "license": "MIT",
+  "scripts": {
+    "mock": "node --experimental-json-modules mock"
+  },
+  "dependencies": {
+    "json-server": "^0.17.0",
+    "mockjs": "^1.1.0"
+  },
+  "devDependencies": {}
+}
