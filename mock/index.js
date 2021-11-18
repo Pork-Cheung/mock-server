@@ -28,11 +28,25 @@ server.use(rewriter);
 
 // 处理响应body
 const router = jsonServer.router(db);
+const mockDb = require('./db/random_mock');
+console.log(mockDb);
 router.render = (req, res) => {
   let body = res.locals.data;
   if (!Object.keys(body).length) {
-    // console.log(req.originalUrl);
-    let resoucesPaths = req.originalUrl.replace("/", "").split("/");
+    const reqPath = req.originalUrl;
+    const projectPath = reqPath.match(/^(\/.*?\/)/)[0];
+    const apiPath = reqPath.replace(projectPath, "");
+    const projectName = projectPath.replace(/\//g, "");
+
+    // 随机mock数据
+    const projectMock = mockDb[projectName];
+    if (projectMock && ~Object.keys(projectMock).indexOf(apiPath)) {
+      res.status(200).jsonp(projectMock[apiPath]());
+      return;
+    }
+
+    //静态mock数据
+    let resoucesPaths = reqPath.replace("/", "").split("/");
     body = db;
     // 按路由找到mock数据
     for (let i = 0; i < resoucesPaths.length; i++) {

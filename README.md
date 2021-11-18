@@ -16,7 +16,9 @@ mock-server 前端 mock 服务器
   - db
     - program 每个项目一个文件夹,自动生成
       - module 项目各个模块的接口
-      - random_mock.js mockjs 生成假数据在这写
+      - random_mock.js 每个项目的mockjs 生成假数据在这写
+    - index.js 静态mock对象
+    - random_mock.js 随机mock对象
   - routes 路由匹配 rewriter
   - index.js 主入口
 
